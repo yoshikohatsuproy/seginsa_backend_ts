@@ -7,7 +7,7 @@ tendrá un inventario y creación de reportes
 > [!Important]
 > Aquí se pondrá la secuencia de pasos para instalar el proyecto (rama dev)
 > 1) Clonar el proyecto
-> 2) El proyecto funcionará en Node v20
+> 2) El proyecto funcionará en Node v20.9.0
 > 3) Crear una copia del archivo ".env.example"
 > 4) Instalar las dependencias "npm install"
 > 5) Levantar la base de datos "docker compose up -d"

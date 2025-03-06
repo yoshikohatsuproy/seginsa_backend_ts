@@ -6,9 +6,7 @@ import { handleInputErrors } from '../../middleware/validation';
 const router = Router();
 
 router.get('/', ProductController.getAll);
-router.get('/:id',
-    param('id').isUUID().withMessage('El id del producto debe ser un uuid'),
-    ProductController.getOne);
+router.get('/:id', ProductController.getOne);
 
 router.post('/',
     body('productoDescripcion').notEmpty().withMessage('El nombre del producto es obligatorio'),
@@ -21,12 +19,10 @@ router.post('/',
     body('createdBy').isEmail().withMessage('CreatedBy tiene que ser un correo'),
     body('updatedBy').notEmpty().withMessage('El correo usuario actualizador del producto es obligatorio'),
     body('updatedBy').isEmail().withMessage('UpdatedBy tiene que ser un correo'),
-
     handleInputErrors,
     ProductController.create);
 
 router.put('/:id',
-    param('id').isUUID().withMessage('El id del producto debe ser un uuid'),
     body('productoDescripcion').notEmpty().withMessage('El nombre del producto es obligatorio'),
     body('productoUnidad').notEmpty().withMessage('El nombre del producto es obligatorio'),
     body('marcaId').notEmpty().withMessage('El nombre del producto es obligatorio'),
@@ -38,7 +34,6 @@ router.put('/:id',
     ProductController.update);
 
 router.patch('/:id',
-    param('id').isUUID().withMessage('El id del producto debe ser un uuid'),
     body('updatedBy').notEmpty().withMessage('El correo usuario actualizador del producto es obligatorio'),
     body('updatedBy').isEmail().withMessage('UpdatedBy tiene que ser un correo'),
     handleInputErrors,
